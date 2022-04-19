@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    /* background-image: url('./img/pexels-kelly-l-9785817.jpg'); */
+    background-color: #2F5D62;
+    color: #DFEEEA;
+    font-family: 'Noto Serif', serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header{
+    width: 90%;
+    text-align: center;
+}
+
+.title{ 
+    font-size: 6rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #5E8B7E;
+}
+
+.navbar{
+    width: 80%;
+    margin-bottom: 2rem;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.btn-top-city{
+    min-width: 7rem;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 1rem;
+    font-family: inherit;
+    color: inherit;
+    border: 0;
+    padding: 1rem;
+}
+
+.btn-top-city:hover{
+    border-bottom: 3px solid #5E8B7E;
+}
+
+main{
+    width: 90%;
+    height: 50%;
+    background-color: aqua;
+}
