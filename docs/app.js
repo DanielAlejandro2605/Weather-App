@@ -11,22 +11,21 @@ function selectCity(){
     displayClimaticInfo(citySelected);
 }
 
-function displayClimaticInfo(city){
+async function displayClimaticInfo(city){
+    let apiRequest = new XMLHttpRequest();
     let currentLongitude;
     let currentLatitude;
     let currentTemperature;
-
-    let api = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=26a4058ef695f3fe7f4c19963b1d3560`;
-    fetch(api)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            currentLongitude = data[0].lon;
-            currentLatitude = data[0].lat;
-        })
-        .then(() => {
-            let apiCurrentCity = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${"26a4058ef695f3fe7f4c19963b1d3560"}`;
+    
+    apiRequest.open('GET',`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=b34fddd3dae4a2eb0ad363b62f98ba1e`);
+    apiRequest.send();
+    apiRequest.onreadystatechange = () => {
+        if (apiRequest.readyState === 4) {
+            const response = JSON.parse(apiRequest.response)
+            console.log(response);
+            currentLongitude = response.coord.lon;
+            currentLatitude = response.coord.lat;
+            let apiCurrentCity = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${"b34fddd3dae4a2eb0ad363b62f98ba1e"}`;
             fetch(apiCurrentCity)
                 .then(response => {
                     return response.json();
@@ -35,7 +34,28 @@ function displayClimaticInfo(city){
                     currentTemperature = kelvinToCelsius(data.main.temp);
                     injectDataInDOM(city, data, currentTemperature);
                 })
-        })
+        }
+    };
+    // //let api = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=26a4058ef695f3fe7f4c19963b1d3560`;
+    // fetch(api)
+    //     .then(response => {
+    //         return response.json();
+    //     })
+    //     .then(data => {
+    //         currentLongitude = data[0].lon;
+    //         currentLatitude = data[0].lat;
+    //     })
+    //     .then(() => {
+    //         let apiCurrentCity = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${"26a4058ef695f3fe7f4c19963b1d3560"}`;
+    //         fetch(apiCurrentCity)
+    //             .then(response => {
+    //                 return response.json();
+    //             })
+    //             .then(data => {
+    //                 currentTemperature = kelvinToCelsius(data.main.temp);
+    //                 injectDataInDOM(city, data, currentTemperature);
+    //             })
+    //     })
 }
 
 function kelvinToCelsius(kelvinDegrees){
