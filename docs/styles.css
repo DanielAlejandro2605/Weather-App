@@ -11,9 +11,7 @@ body{
     background-image: url('./img/back-fond.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-color: #2F5D62; */
     color: #DFEEEA;
-    /* font-family: 'Noto Serif', serif; */
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-wrap: wrap;
@@ -140,4 +138,38 @@ main{
 .icon-weather{
     width: 80%;
     height: 80%;
+}
+
+@media (max-width: 420px) {
+    body{
+        height: auto;
+        background-image: url('./img/pexels-photo-7594835.jpeg');
+    }
+    .title{
+        margin-top: 2rem;
+        font-size: 2rem;
+        color: #28566A;
+    }
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        padding-right: 3%;
+    }
+    .btn-top-city{
+        max-width: 5rem;
+        text-align: center;
+    }
+    main{
+        max-width: 85%;
+    }
+    .city-title{
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    .city-country{
+        font-size: 1.2rem;
+    }
+    .city-temperature-container{
+        font-size: 2rem;
+    }
 }
