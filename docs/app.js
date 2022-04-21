@@ -1,3 +1,34 @@
+const icons = [
+    {
+        "iconID" : ["01d"],
+        "icon" : "CLEAR_DAY"
+    }, {
+        "iconID" : ["01n"],
+        "icon" : "CLEAR_NIGTH"
+    },{
+        "iconID" : ["02d"],
+        "icon" : "PARTLY_CLOUDY_DAY"
+    },{
+        "iconID" : ["02n"],
+        "icon" : "PARTLY_CLOUDY_NIGHT"
+    },{
+        "iconID" : ["03d", "03n", "04d", "04n"],
+        "icon": "CLOUDY"
+    },{
+        "iconID" : ["09d", "09n"],
+        "icon": "RAIN"
+    },{
+        "iconID" : ["10d", "10n"],
+        "icon": "SLEET"
+    },{
+        "iconID" : ["13d", "13n"],
+        "icon": "SNOW"
+    },{
+        "iconID" : ["50d", "50n"],
+        "icon": "FOG"
+    }
+]
+
 /*I set as default Bogota */
 window.addEventListener('load', () => {
     displayClimaticInfo('Bogota');
@@ -77,10 +108,19 @@ function injectWeatherInfo(data, currentTemperature){
 }
 
 function injectIcon(data){
-    let iconImg = document.querySelector('.icon-weather');
-    let icon = data.weather[0].icon;
-    iconImg.setAttribute('src', `http://openweathermap.org/img/wn/${icon}@2x.png`)
-    console.log(icon);
+    let skycons = new Skycons({"color": "white"});
+    let iconSVG= document.getElementById('icon1');
+    let iconID = data.weather[0].icon;
+    console.log(iconID);
+    let iconReference;
+    icons.forEach(iconObject => {
+        if(iconObject.iconID.includes(iconID)){
+            iconReference = iconObject;
+        }
+    })
+    console.log(iconReference);
+    skycons.add(iconSVG, Skycons[iconReference.icon]);
+    skycons.play();
 }
 function injectCityInformation(city, data){
     let cityTitle = document.querySelector('.city-title');
