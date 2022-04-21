@@ -172,4 +172,8 @@ main{
     .city-temperature-container{
         font-size: 2rem;
     }
+    canvas{
+        width: 90px;
+        height: 90px;
+    }
 }
