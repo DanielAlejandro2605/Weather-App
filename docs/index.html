@@ -10,9 +10,11 @@
 <body>
     <header>
         <h1 class="title">Weather App</h1>
-        <nav class="navbar">
+        <nav class="navbar1">
             <button class="btn-top-city">Bogota</button>
             <button class="btn-top-city">Uyuni</button>
+            <button class="btn-top-city">São Paulo</button>
+            <button class="btn-top-city">Buenos Aires</button>
             <button class="btn-top-city">New York</button>
             <button class="btn-top-city">London</button>
             <button class="btn-top-city">Barcelona</button>
@@ -20,21 +22,41 @@
             <button class="btn-top-city">Amsterdam</button>
             <button class="btn-top-city">Istambul</button>
             <button class="btn-top-city">Tokyo</button>
-            <button class="btn-top-city">Delhi</button>
-            <button class="btn-top-city">Mumbai</button>
+            <button class="btn-top-city">Beijing</button>
         </nav>
     </header>
     <main>
         <div class="city-info">
-            <h1 class="title-city">Bogota</h1>
-            <span class="country">CO</span>
-            <span class="date">Wednesday, 20 april</span>
-            <span class="weather-description">Clouds</span>
+            <h1 class="city-title"></h1>
+            <span class="city-country"></span>
+            <span class="city-date"></span>
+            <span class="city-time"></span>
+            <span class="city-weather-description"></span>
         </div>
-        <div class="weather-info">
-            <a><img class="icon-weather" src="http://openweathermap.org/img/wn/10d@2x.png"></a>
+        <div class="city-weather-info">
+            <div class="city-temperature-container">
+                <span class="degree-temperature">15</span>
+                <span class="temperature-convension">°C</span>
+            </div>
+            <div class="city-weather-icon-container">
+                <img class="icon-weather">
+            </div>
         </div>
     </main>
+    <nav class="navbar2">
+        <button class="btn-top-city">Madrid</button>
+        <button class="btn-top-city">Toronto</button>
+        <button class="btn-top-city">Sydney</button>
+        <button class="btn-top-city">Berlin</button>
+        <button class="btn-top-city">Vienna</button>
+        <button class="btn-top-city">Moscow</button>
+        <button class="btn-top-city">Rome</button>
+        <button class="btn-top-city">Washington</button>
+        <button class="btn-top-city">Quito</button>
+        <button class="btn-top-city">Dubai</button>
+        <button class="btn-top-city">Singapore</button>
+        <button class="btn-top-city">Doha</button>
+    </nav>
     <script src="app.js"></script>
 </body>
 </html>
